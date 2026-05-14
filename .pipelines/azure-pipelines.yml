@@ -22,11 +22,11 @@ parameters:
     - filter
   - name: objectId
     displayName: Object Id
-    type: string   
+    type: string
 
 pool:
   vmImage: windows-latest
-  #vmImage: 'ubuntu-latest' 
+  #vmImage: 'ubuntu-latest'
 
 stages:
 - stage: validate
@@ -38,14 +38,18 @@ stages:
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
+        # Use runtime expression $(...) and env vars instead of compile-time ${{ }}
+        # substitution to prevent the user-supplied parameter from being interpolated
+        # directly into the script body (which would allow PowerShell command injection).
         script: |
           Write-Host "-------------------------------"
-          Write-Host "Prod Tenant id: $(ProdTenantId)"
-          Write-Host "Dev Tenant id: $(DevTenantId)"
-          Write-Host "-------------------------------"
-          Write-Host "Intune object type to move: ${{parameters.confType}}"
-          Write-Host "Intune object id to move: ${{parameters.objectId}}"
-          Write-Host "Debug mode: ${{parameters.debug}}"
+          Write-Host "Intune object type to move: $env:CONF_TYPE"
+          Write-Host "Intune object id to move:   $env:OBJECT_ID"
+          Write-Host "Debug mode: $env:DEBUG_MODE"
+      env:
+        CONF_TYPE: ${{ parameters.confType }}
+        OBJECT_ID: ${{ parameters.objectId }}
+        DEBUG_MODE: ${{ parameters.debug }}
 
 - stage: getSourceObject
   displayName: Get source object from dev
@@ -56,7 +60,16 @@ stages:
     - task: PowerShell@2
       inputs:
         filePath: '$(System.DefaultWorkingDirectory)/Get-IntuneObject.ps1'
-        arguments: '-tenantId $(DevTenantId) -clientId $(DevAppId) -clientSecret $(DevAppSecret) -type ${{parameters.confType}} -objectId ${{parameters.objectId}}'
+        # Secrets are bound via env: so they are not exposed on the process command
+        # line. Azure DevOps masks $(secret) only when used as a single token; passing
+        # them through env: also avoids accidental shell-quoting / injection issues.
+        arguments: '-tenantId $env:TENANT_ID -clientId $env:CLIENT_ID -clientSecret $env:CLIENT_SECRET -type $env:CONF_TYPE -objectId $env:OBJECT_ID'
+      env:
+        TENANT_ID: $(DevTenantId)
+        CLIENT_ID: $(DevAppId)
+        CLIENT_SECRET: $(DevAppSecret)
+        CONF_TYPE: ${{ parameters.confType }}
+        OBJECT_ID: ${{ parameters.objectId }}
     - task: CopyFiles@2
       displayName: "Intune object to: $(build.artifactstagingdirectory)'"
       inputs:
@@ -82,5 +95,10 @@ stages:
     - task: PowerShell@2
       inputs:
         filePath: '$(System.DefaultWorkingDirectory)/Deploy-IntuneObject.ps1'
-        arguments: '-tenantId $(ProdTenantId) -clientId $(ProdAppId) -clientSecret $(ProdAppSecret) -type ${{parameters.confType}} -path "$(Pipeline.Workspace)/intuneObject.json"'
-
+        # Secrets bound through env: rather than the command line. See note above.
+        arguments: '-tenantId $env:TENANT_ID -clientId $env:CLIENT_ID -clientSecret $env:CLIENT_SECRET -type $env:CONF_TYPE -path "$(Pipeline.Workspace)/intuneObject.json"'
+      env:
+        TENANT_ID: $(ProdTenantId)
+        CLIENT_ID: $(ProdAppId)
+        CLIENT_SECRET: $(ProdAppSecret)
+        CONF_TYPE: ${{ parameters.confType }}
