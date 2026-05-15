@@ -1,3 +1,48 @@
+<!-- unified-readme:start -->
+    <div align="center">
+
+    # Intune DevOps
+
+    **DevOps pipeline integration for Microsoft Intune configuration management and deployment automation.**
+
+    Build. Release. Govern.
+
+    [![GitHub stars](https://img.shields.io/github/stars/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=f4c542)](https://github.com/JayRHa/IntuneDevOps/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=4078c0)](https://github.com/JayRHa/IntuneDevOps/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=d73a4a)](https://github.com/JayRHa/IntuneDevOps/issues)
+[![Contributors](https://img.shields.io/github/contributors/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=28a745)](https://github.com/JayRHa/IntuneDevOps/graphs/contributors)
+
+    ---
+
+    `Endpoint Management` | `PowerShell` | `Public` | `Maintained`
+
+    </div>
+
+    ## What is this?
+
+    This repository contains devOps pipeline integration for Microsoft Intune configuration management and deployment automation.
+
+    > Browse the documentation below for setup notes, usage details, and project-specific context.
+
+    ---
+
+    ## Quick Start
+
+    1. Review the project documentation below.
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/JayRHa/IntuneDevOps.git
+   ```
+
+3. Follow the setup, deployment, or usage notes in the preserved documentation section.
+
+    ---
+    <!-- unified-readme:end -->
+
+
+## Existing Documentation
+
 # Intune DevOps
 [Check out my blog](https://jannikreinhard.com)
 
