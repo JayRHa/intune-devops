@@ -1,3 +1,18 @@
+<!-- repo-standard:start -->
+# Intune DevOps
+
+DevOps pipeline integration for Microsoft Intune configuration management and deployment automation.
+
+| Area | Stack | Visibility |
+| --- | --- | --- |
+| Endpoint Management | PowerShell, CI/CD | Public |
+
+**Repository:** `JayRHa/intune-devops`  
+**Topics:** `microsoft-intune`, `devops`, `cicd`, `powershell`, `automation`
+<!-- repo-standard:end -->
+
+---
+
 # Intune DevOps
 [Check out my blog](https://jannikreinhard.com)
 
