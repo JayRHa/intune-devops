@@ -70,7 +70,7 @@ flowchart LR
 
 ## Description
 
-![Tool View](https://github.com/JayRHa/IntuneDevOps/blob/main/.images/devops.png)
+![Tool View](https://github.com/JayRHa/IntuneDevOps/blob/main/assets/devops.png)
 
 ## How does it work
 You can find all informations how to setup and how does it work in my blog post:
