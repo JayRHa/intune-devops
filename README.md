@@ -20,7 +20,7 @@ Build. Release. Govern.
 
 ## What is this?
 
-This repository provides devOps pipeline integration for Microsoft Intune configuration management and deployment automation.
+DevOps pipeline integration for Microsoft Intune configuration management and deployment automation.
 
 > Browse the documentation below for setup notes, usage details, and project-specific context.
 
