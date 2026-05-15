@@ -12,6 +12,16 @@ Build. Release. Govern.
 [![GitHub issues](https://img.shields.io/github/issues/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=d73a4a)](https://github.com/JayRHa/IntuneDevOps/issues)
 [![Contributors](https://img.shields.io/github/contributors/JayRHa/IntuneDevOps?style=for-the-badge&logo=github&color=28a745)](https://github.com/JayRHa/IntuneDevOps/graphs/contributors)
 
+[Check out my blog](https://jannikreinhard.com)
+<p align="left">
+  <a href="https://twitter.com/jannik_reinhard">
+    <img src="https://img.shields.io/twitter/follow/jannik_reinhard?style=social" target="_blank" />
+  </a>
+    <a href="https://github.com/JayRHa">
+    <img src="https://img.shields.io/github/followers/JayRHa?style=social" target="_blank" />
+  </a>
+</p>
+
 ---
 
 `Endpoint Management` | `PowerShell` | `Public` | `Maintained`
@@ -51,27 +61,10 @@ flowchart LR
    git clone https://github.com/JayRHa/IntuneDevOps.git
    ```
 
-3. Continue with the project-specific documentation in the next section.
+3. Continue with the setup, usage, or workflow sections below.
 
 ---
 <!-- unified-readme:end -->
-
-<!-- project-documentation:start -->
-## Project Documentation
-
-The sections below contain the repository-specific setup, usage, and reference material for this project.
-
-# Intune DevOps
-[Check out my blog](https://jannikreinhard.com)
-
-<p align="left">
-  <a href="https://twitter.com/jannik_reinhard">
-    <img src="https://img.shields.io/twitter/follow/jannik_reinhard?style=social" target="_blank" />
-  </a>
-    <a href="https://github.com/JayRHa">
-    <img src="https://img.shields.io/github/followers/JayRHa?style=social" target="_blank" />
-  </a>
-</p>
 
 ## Change Log
 ---
